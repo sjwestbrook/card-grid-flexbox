@@ -1,1 +1,41 @@
+/* GRID BASICS - ARRANGE EACH OF THE ITEMS IN A GRID ============================== */
+
+/* mobile first - first styles will give wrapper a width and center it */
+.band {
+  width: 90%;
+  max-width: 1240px;
+  margin: 0 auto;  
+  display: grid;
+  /* each column will take up a single fraction of those available; 1fr = each column will fill the whole width */
+  grid-template-columns: 1fr;    
+  /* default value; row heights will be determined purely by the content */
+  grid-template-rows: auto;    
+  /* column and row gutters */
+  grid-gap: 20px;    
+}
+
+@media only screen and (min-width: 500px) {
+   /* allows a possible 2 cards per row */
+  .band {
+    grid-template-columns: 1fr 1fr;  
+  }
+}
+
+@media only screen and (min-width: 850px) {
+  .band {
+    grid-template-columns: repeat(4, 1fr);   /* equal to grid-template-columns: 1fr 1fr 1fr 1fr; */ 
+  }
+}
+
+
+
+/* STYLING THE CARDS ============================== */
+
+
+
+
+
+
+
+
 
