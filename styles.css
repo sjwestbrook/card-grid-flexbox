@@ -112,6 +112,4 @@
   .band {
     grid-template-columns: repeat(4, 1fr);   /* equal to grid-template-columns: 1fr 1fr 1fr 1fr; */ 
   }
-  
-  .
 }
