@@ -14,18 +14,7 @@
   grid-gap: 20px;    
 }
 
-@media only screen and (min-width: 500px) {
-   /* allows a possible 2 cards per row */
-  .band {
-    grid-template-columns: 1fr 1fr;  
-  }
-}
 
-@media only screen and (min-width: 850px) {
-  .band {
-    grid-template-columns: repeat(4, 1fr);   /* equal to grid-template-columns: 1fr 1fr 1fr 1fr; */ 
-  }
-}
 
 
 
@@ -58,8 +47,70 @@
 
 
 
+/* TYPOGRAPHY ============================== */
+
+.card article {
+  padding: 20px; 
+  /* align the author name at the bottom of the card, regardless of amount of content above it */
+  /* this flex item (child of original flex container) should grow to take up all the available space */
+  flex: 1;  
+  
+  /* declare the article is a flex container in its own right and again with vertical distribution; all flex items within the article item should be spread evenly along the axis with equal spacing between */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/*typography */
+.card h1 {
+  font-size: 20px;
+  margin: 0;
+  color: #333;
+}
+
+.card p {
+  line-height: 1.4; 
+  /* make p grow to fill available space */
+  flex: 1;
+}
+
+.card span {
+  font-size: 12px;
+  font-weight: bold;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin: 2em 0 0 0;
+}
 
 
 
+/* THUMBNAILS ============================== */
+
+.card .thumb {
+  padding-bottom: 60%;
+  background-size: cover;
+  background-position: center center;
+}
 
 
+
+/* MEDIA QUERIES ============================== */
+
+@media only screen and (min-width: 500px) {
+   /* allows a possible 2 cards per row */
+  .band {
+    grid-template-columns: 1fr 1fr;  
+  }
+  /* Make the very first card (aka "featured card") 2 columns wide for anything other than the smallest viewports */
+  /* Beyond 500px, the first item should begin on grid line 1 and span across 2 tracks. The rest of the grid items fall into place automatically. */
+  .item-1 {
+    grid-column: 1/ span 2; 
+  }
+}
+
+@media only screen and (min-width: 850px) {
+  .band {
+    grid-template-columns: repeat(4, 1fr);   /* equal to grid-template-columns: 1fr 1fr 1fr 1fr; */ 
+  }
+}
